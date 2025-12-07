@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Elite Vet & Animal Market 2025</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      cursor: url('https://cdn-icons-png.flaticon.com/512/32/32195.png'), auto;
+      transition: background 0.5s, color 0.5s;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .glass:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 16px 48px 0 rgba(31, 38, 135, 0.6);
+    }
+    .gold-text {
+      background: linear-gradient(90deg, #ffd700, #ffe066, #ffcc00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+    }
+    .neon-button {
+      background: transparent;
+      border: 2px solid #ffd700;
+      border-radius: 9999px;
+      padding: 0.75rem 2rem;
+      color: #ffd700;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 0 10px #ffd700;
+      font-size: 1.1rem;
+    }
+    .neon-button:hover {
+      background: #ffd700;
+      color: #222;
+      box-shadow: 0 0 30px #ffd700;
+      transform: scale(1.1);
+    }
+    /* Dark mode */
+    body.dark {
+      background: linear-gradient(135deg, #111, #222, #333);
+      color: #eee;
+    }
+    body.dark .glass {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body class="transition-all">
+
+<!-- Navbar -->
+<nav class="fixed top-0 w-full z-50 bg-black bg-opacity-70 backdrop-blur-md py-4 px-8 flex justify-between items-center shadow-lg">
+  <h1 class="text-3xl gold-text font-extrabold cursor-default select-none">EliteVet 2025</h1>
+  <ul class="hidden md:flex space-x-8 font-semibold text-yellow-300">
+    <li><a href="#home" class="hover:text-yellow-500 transition">Bosh sahifa</a></li>
+    <li><a href="#services" class="hover:text-yellow-500 transition">Xizmatlar</a></li>
+    <li><a href="#market" class="hover:text-yellow-500 transition">Bozor</a></li>
+    <li><a href="#contact" class="hover:text-yellow-500 transition">Aloqa</a></li>
+  </ul>
+  <!-- Dark Mode Switch -->
+  <button id="darkSwitch" class="ml-4 neon-button text-sm px-3 py-1">Dark Mode</button>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="min-h-screen flex flex-col justify-center items-center px-6 text-center relative">
+  <h2 class="text-7xl md:text-8xl font-extrabold gold-text drop-shadow-2xl leading-tight" data-aos="fade-down">Elite Vet & Animal Market</h2>
+  <p class="mt-6 text-xl max-w-3xl text-yellow-300" data-aos="fade-up" data-aos-delay="300">Eng zamonaviy veterinar xizmatlari va premium hayvonlar bozori.</p>
+  <button id="scrollBtn" class="neon-button mt-10" data-aos="zoom-in" data-aos-delay="600">Xizmatlarga o'tish</button>
+</section>
+
+<!-- Services -->
+<section id="services" class="py-28 max-w-7xl mx-auto px-6">
+  <h3 class="text-5xl font-extrabold gold-text mb-20 text-center" data-aos="fade-right">Bizning xizmatlar</h3>
+  <div class="grid md:grid-cols-3 gap-12">
+    <div class="glass p-8" data-aos="flip-left" data-aos-delay="100">
+      <img src="https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?auto=format&fit=crop&w=800&q=80" alt="AI Diagnostika" class="rounded-xl mb-6 object-cover h-56 w-full" />
+      <h4 class="text-2xl font-semibold gold-text mb-2">AI Diagnostika</h4>
+      <p class="text-yellow-200">Sun'iy intellekt yordamida tez va aniq tashxis.</p>
+    </div>
+    <div class="glass p-8" data-aos="flip-left" data-aos-delay="300">
+      <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Lux Davolash" class="rounded-xl mb-6 object-cover h-56 w-full" />
+      <h4 class="text-2xl font-semibold gold-text mb-2">Lux Davolash</h4>
+      <p class="text-yellow-200">Eng so‘nggi texnologiyalar bilan davolash.</p>
+    </div>
+    <div class="glass p-8" data-aos="flip-left" data-aos-delay="500">
+      <img src="https://images.unsplash.com/photo-1562176565-a89a1303d0f5?auto=format&fit=crop&w=800&q=80" alt="Hayvon Bozori" class="rounded-xl mb-6 object-cover h-56 w-full" />
+      <h4 class="text-2xl font-semibold gold-text mb-2">Premium Hayvon Bozori</h4>
+      <p class="text-yellow-200">Eng sifatli va ishonchli hayvonlar bozori.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Market Section -->
+<section id="market" class="py-28 max-w-7xl mx-auto px-6">
+  <h3 class="text-5xl font-extrabold gold-text mb-20 text-center" data-aos="fade-up">Sotuvdagi hayvonlar</h3>
+  <input type="text" id="searchInput" placeholder="Hayvonni qidirish..." class="mb-12 w-full max-w-md mx-auto p-4 rounded-lg bg-black bg-opacity-50 border border-yellow-500 text-yellow-300 placeholder-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+  <div id="animalCards" class="grid md:grid-cols-3 gap-10"></div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 max-w-4xl mx-auto px-6 text-center">
+  <h3 class="text-5xl font-extrabold gold-text mb-10" data-aos="fade-up">Biz bilan bog‘laning</h3>
+  <form class="glass p-10 rounded-3xl shadow-lg max-w-xl mx-auto grid gap-6" data-aos="fade-up" data-aos-delay="200">
+    <input type="text" placeholder="Ismingiz" class="p-4 rounded-lg bg-black bg-opacity-50 border border-yellow-500 text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+    <input type="email" placeholder="Emailingiz" class="p-4 rounded-lg bg-black bg-opacity-50 border border-yellow-500 text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+    <textarea placeholder="Xabaringiz" class="p-4 rounded-lg bg-black bg-opacity-50 border border-yellow-500 text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 h-32"></textarea>
+    <button type="submit" class="neon-button">Yuborish</button>
+  </form>
+</section>
+
+<script>
+  AOS.init({ duration: 1500 });
+
+  // Dark/Light switch
+  const darkSwitch = document.getElementById('darkSwitch');
+  darkSwitch.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    darkSwitch.textContent = document.body.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
+  });
+
+  // Hayvonlar ro'yxati (ko'paytirildi)
+  const animals = [
+    { name: "Nemis Ovcharkasi", price: "3 500 000 so'm", img: "https://s0.rbk.ru/v6_top_pics/media/img/3/24/347401360490243.webp" },
+    { name: "Qizil Mushuk", price: "1 200 000 so'm", img: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=800&q=80" },
+    { name: "Jiyron Ot", price: "11 000 000 so'm", img: "https://www.ziyouz.uz/wp-content/uploads/2015/10/horse.jpg" },
+    { name: "Rottweiler", price: "4 200 000 so'm", img: "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?auto=format&fit=crop&w=800&q=80" },
+    { name: "Qo‘y", price: "2 800 000 so'm", img: "https://i.okcdn.ru/i?r=CICbQJv1RQZIqEhgaodSMDofm0S0YhkS6sl4m0JTwgh1Qs_41nlSxw19uEe8C8ShFr3jTt7ZbLJG5B4HUtLjRWIkaRSe9_P3aBNMhuRcbewKXQPwLOjPEOW7tvi-hXVWedFeGZm0x7phhg13Wrq_4cNuGAczzwmiQQ1rAk7ZKuEe5As0qnVttnYUEjCFx3YspyyfEPZhCPhdiqM_HwAAACk" },
+    { name: "Angora Mushuk", price: "1 900 000 so'm", img: "https://aniq.uz/photos/news/jZMgsPUMdLnsFOb.jpeg" },
+    { name: "Sibir Mushugi", price: "1 500 000 so'm", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8_mM3S9oN8rkGSeSFfdngUoYVVvP3lci_oQ&s" },
+    { name: "Chihuahua", price: "2 200 000 so'm", img: "https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=800&q=80" },
+    { name: "Arab Ot", price: "12 000 000 so'm", img: "https://i.okcdn.ru/videoPreview?id=751813397219&type=37&idx=0&tkn=Z-cThvUUG9iEBaXPmrIhS7MlkFI&fn=external_8" },
+    { name: "Persian Mushuk", price: "2 000 000 so'm", img: "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=800&q=80" }
+  ];
+
+  // Hayvon kartalarini ko'rsatish
+  const animalCards = document.getElementById("animalCards");
+  function showAnimals(filter = "") {
+    animalCards.innerHTML = "";
+    animals.filter(a => a.name.toLowerCase().includes(filter.toLowerCase()))
+      .forEach(a => {
+        const card = document.createElement("div");
+        card.className = "glass p-6 rounded-3xl shadow-lg hover:scale-105 transition transform hover:-rotate-1 cursor-pointer";
+        card.innerHTML = `
+          <img src="${a.img}" alt="${a.name}" class="rounded-2xl w-full h-48 object-cover mb-5" />
+          <h4 class="text-2xl font-bold gold-text mb-2">${a.name}</h4>
+          <p class="text-yellow-400 text-lg">${a.price}</p>
+          <button class="neon-button mt-4 w-full">Bog‘lanish</button>
+        `;
+        animalCards.appendChild(card);
+      });
+  }
+  showAnimals();
+
+  // Qidiruv
+  const searchInput = document.getElementById("searchInput");
+  searchInput.addEventListener("input", e => showAnimals(e.target.value));
+
+  // Smooth scroll
+  document.getElementById("scrollBtn").addEventListener("click", () => {
+    document.getElementById("services").scrollIntoView({ behavior: "smooth" });
+  });
+
+  // Three.js fon (3D torus)
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setClearColor(0x000000, 0);
+  document.body.appendChild(renderer.domElement);
+
+  const geometry = new THREE.TorusGeometry(15, 4, 16, 100);
+  const material = new THREE.MeshStandardMaterial({ color: 0xffd700, metalness: 0.9, roughness: 0.2, emissive: 0x552200 });
+  const torus = new THREE.Mesh(geometry, material);
+  scene.add(torus);
+
+  const pointLight = new THREE.PointLight(0xffffff, 1.5);
+  pointLight.position.set(20, 20, 20);
+  scene.add(pointLight);
+
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.25);
+  scene.add(ambientLight);
+
+  camera.position.z = 50;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    torus.rotation.x += 0.005;
+    torus.rotation.y += 0.007;
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth/window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+</script>
+</body>
+</html>
